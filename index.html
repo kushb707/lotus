@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus - Luxury Properties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body class="text-gray-800">
+
+  <!-- Header & Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-teal-600">Lotus</h1>
+      <nav class="hidden md:flex space-x-6 ml-auto">
+        <a href="#properties" class="hover:text-teal-600">Properties</a>
+        <a href="#about" class="hover:text-teal-600">About</a>
+        <a href="#contact" class="hover:text-teal-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-teal-600 text-white py-20 text-center px-6">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Luxury Properties</h2>
+    <p class="text-lg md:text-xl mb-6">Explore our hand-picked vacation homes for your next stay</p>
+    <a href="#properties" class="inline-block bg-white text-teal-600 px-6 py-3 rounded font-medium hover:bg-gray-100">Browse Listings</a>
+  </section>
+
+  <!-- Properties Section -->
+  <section id="properties" class="py-16 px-6 bg-gray-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Featured Properties</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="WhatsApp Image 2025-06-05 at 18.44.37.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">4BHK Villa</h3>
+            <p class="text-gray-600">Gandhi Path West</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+          <img src="WhatsApp Image 2025-06-05 at 18.35.49.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">2BHK Apartment</h3>
+            <p class="text-gray-600">Gandhi Path West</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map" class="py-16 px-6 bg-emerald-50">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Explore Our Locations</h2>
+      <div id="propertyMap" class="w-full h-[300px] md:h-[500px] rounded-xl shadow-lg"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">About Us</h2>
+      <p class="text-lg text-gray-600">At Lotus, we provide top-tier homestay experiences in handpicked locations. Whether you crave serenity, or city skylines, our properties are curated to offer unforgettable stays with premium amenities and personalized service.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Contact Us</h2>
+      <p class="text-lg text-gray-600 mb-4">We’re happy to help with bookings or questions!</p>
+      <div class="mt-8 space-y-4 text-gray-700">
+        <p><strong>Email:</strong> <a href="mailto:kushbugaliya00@gmail.com" class="text-teal-600 hover:underline">kushbugaliya00@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+91 9024048356" class="text-teal-600 hover:underline">+91 90240-48356</a></p>
+        <p><strong>Alternate Contact:</strong> <a href="tel:+91 7251999555" class="text-teal-600 hover:underline">+91 7251999555</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 text-gray-500">
+    &copy; 2025 Lotus. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Leaflet map setup
+    var map = L.map('propertyMap').setView([26.915300156347158, 75.81791862061316],12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const properties = [
+      {
+        name: "4BHK Villa",
+        location: "13.8km from city center",
+        coords: [26.899587, 75.695827]
+      },
+      {
+        name: "2BHK Apartment",
+        location: "10.8km from city center",
+        coords: [26.900292671092807, 75.72887026955608]
+      }
+    ];
+
+    properties.forEach(prop => {
+      L.marker(prop.coords)
+        .addTo(map)
+        .bindPopup(`<strong>${prop.name}</strong><br>${prop.location}`);
+    });
+  </script>
+</body>
+</html>
