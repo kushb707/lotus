@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lotus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #slideshow img {
+      transition: opacity 1s ease-in-out;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-gray-800">
+
+  <!-- Header & Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-teal-600">Lotus</a>
+      <nav class="hidden md:flex space-x-6 ml-auto">
+        <a href="index.html#properties" class="hover:text-teal-600">Properties</a>
+        <a href="index.html#about" class="hover:text-teal-600">About</a>
+        <a href="index.html#contact" class="hover:text-teal-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Property Details -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4">2BHK Apartment</h1>
+      <p class="text-gray-700">Enjoy a luxurious stay in the heart of Jaipur with breathtaking interiors. This modern apartment features 2 bedrooms, 2 bathrooms to unwind in style.</p>
+      
+      
+      <div id="slideshow" class="relative w-full h-[36rem] rounded-xl overflow-hidden mb-8">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.17.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 1;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.18 (1).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.18 (2).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.18.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.19 (1).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.19.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.20 (1).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.20 (2).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.20.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.21 (1).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.21.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.22 (1).jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.10.22.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.35.49.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-05 at 18.44.37.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-06-07 at 16.33.39.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <img src="WhatsApp Image 2025-02-03 at 16.58.55.jpeg" class="absolute w-full h-full object-cover rounded-xl" style="opacity: 0;">
+        <button onclick="prevImage(true)" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 px-3 py-1 rounded-full">&#8592;</button>
+        <button onclick="nextImage(true)" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 px-3 py-1 rounded-full">&#8594;</button>
+      </div>
+
+  <!-- Details -->
+    <div class="mt-10">
+      <h2 class="text-2xl font-semibold mb-2">Property Highlights</h2>
+      <ul class="list-disc pl-5 text-gray-700 space-y-1">
+        <li>2 Bedrooms, 2 Bathrooms</li>
+        <li>Private Balcony</li>
+        <li>Modern interior with full kitchen</li>
+        <li>Perfect for a family of 4</li>
+      </ul>
+    </div>
+
+  
+  <div class="mt-6">
+      <h2 class="text-2xl font-semibold mb-2">Pricing & Booking</h2>
+      <p class="text-gray-700">Starting at <strong>INR 3,0000/night</strong>. <a href="index.html#contact" class="text-blue-600 hover:underline">Contact us </a> for availability and discounts.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center py-6 text-gray-500 mt-auto">
+    &copy; 2025 Lotus. All rights reserved.
+  </footer> 
+
+  <!-- Slideshow Script -->
+  <script>
+    const images = document.querySelectorAll('#slideshow img');
+    let current = 0;
+    let interval = setInterval(nextImage, 3000);
+
+    function showImage(index) {
+      images.forEach((img, i) => img.style.opacity = i === index ? 1 : 0);
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      interval = setInterval(nextImage, 3000);
+    }
+
+    function nextImage(reset = false) {
+      current = (current + 1) % images.length;
+      showImage(current);
+      if (reset) resetInterval();
+    }
+
+    function prevImage(reset = false) {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+      if (reset) resetInterval();
+    }
+  </script>
+</body>
+</html>

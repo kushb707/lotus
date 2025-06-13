@@ -13,7 +13,7 @@
   <!-- Header & Navbar -->
   <header class="bg-white shadow-md sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-teal-600">Lotus</h1>
+      <a href="index.html" class="text-2xl font-bold text-teal-600">Lotus</a>
       <nav class="hidden md:flex space-x-6 ml-auto">
         <a href="#properties" class="hover:text-teal-600">Properties</a>
         <a href="#about" class="hover:text-teal-600">About</a>
@@ -35,18 +35,22 @@
       <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Featured Properties</h2>
       <div class="grid gap-8 md:grid-cols-3">
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
-          <img src="WhatsApp Image 2025-06-05 at 18.44.37.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">4BHK Villa</h3>
-            <p class="text-gray-600">Gandhi Path West</p>
-          </div>
+          <a href="property1.html" class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+            <img src="WhatsApp Image 2025-06-05 at 18.44.37.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold">4BHK Villa</h3>
+              <p class="text-gray-600">Gandhi Path West</p>
+            </div>
+          </a>
         </div>
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
-          <img src="WhatsApp Image 2025-06-05 at 18.35.49.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold">2BHK Apartment</h3>
-            <p class="text-gray-600">Gandhi Path West</p>
-          </div>
+          <a href="property2.html" class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
+            <img src="WhatsApp Image 2025-06-05 at 18.35.49.jpeg" class="w-full h-48 md:h-64 object-cover" loading="lazy">
+            <div class="p-4">
+              <h3 class="text-xl font-semibold">2BHK Apartment</h3>
+              <p class="text-gray-600">Gandhi Path West</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -89,7 +93,7 @@
   <!-- Scripts -->
   <script>
     // Leaflet map setup
-    var map = L.map('propertyMap').setView([26.915300156347158, 75.81791862061316],10);
+    var map = L.map('propertyMap').setView([26.915300156347158, 75.81791862061316],12);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
